@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun handleVoiceCommand(command: String) {
         when {
             command.contains("call") || command.contains("emergency") -> {
-                makeEmergencyCall("+918610929397")
+                makeEmergencyCall("+91xxxxxxxxxx")
                 sendEmergencySMS()
             }
             command.contains("help") -> {
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     val message = "Emergency! Live location: https://maps.google.com/?q=${location.latitude},${location.longitude}"
-                    SmsManager.getDefault().sendTextMessage("+918610929397", null, message, null, null)
+                    SmsManager.getDefault().sendTextMessage("+91xxxxxxxxxx", null, message, null, null)
                     speakOut("Emergency SMS sent with location.")
                 } else {
                     speakOut("Unable to fetch location for SMS.")
